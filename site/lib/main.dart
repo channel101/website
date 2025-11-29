@@ -20,14 +20,15 @@ import 'src/components/pages/archive_table.dart';
 import 'src/components/pages/devtools_release_notes_index.dart';
 import 'src/components/pages/expansion_list.dart';
 import 'src/components/pages/learning_resource_index.dart';
+import 'src/components/pages/widget_catalog.dart';
 import 'src/components/tutorial/downloadable_snippet.dart';
 import 'src/components/tutorial/progress_ring.dart';
 import 'src/components/tutorial/quiz.dart';
 import 'src/components/tutorial/stepper.dart';
 import 'src/components/tutorial/summary_card.dart';
+import 'src/components/tutorial/tutorial_outline.dart';
 import 'src/components/util/component_ref.dart';
 import 'src/extensions/registry.dart';
-import 'src/layouts/catalog_page_layout.dart';
 import 'src/layouts/doc_layout.dart';
 import 'src/layouts/toc_layout.dart';
 import 'src/layouts/tutorial_layout.dart';
@@ -74,7 +75,6 @@ Component get _docsFlutterDevSite => ContentApp.custom(
     layouts: const [
       DocLayout(),
       TocLayout(),
-      CatalogPageLayout(),
       TutorialLayout(),
     ],
     theme: const ContentTheme.none(),
@@ -115,6 +115,9 @@ List<CustomComponent> get _embeddableComponents => [
   const SummaryCard(),
   const DownloadableSnippet(),
   const Stepper(),
+  const WidgetCatalogCategories(),
+  const TutorialOutline(),
+  const WidgetCatalogGrid(),
   CustomComponent(
     pattern: RegExp('OSSelector', caseSensitive: false),
     builder: (_, _, _) => const OsSelector(),

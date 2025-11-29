@@ -4,6 +4,7 @@
 
 import 'package:jaspr/jaspr.dart';
 
+import '../../markdown/markdown_parser.dart';
 import '../../models/page_navigation_model.dart';
 import 'material_icon.dart';
 
@@ -50,7 +51,9 @@ class _PrevNextCard extends StatelessComponent {
           attributes: {'aria-label': ariaLabel},
           [text(subtitle)],
         ),
-        span(classes: 'prev-next-title', [text(page.title)]),
+        span(classes: 'prev-next-title', [
+          DashMarkdown(inline: true, content: page.title),
+        ]),
       ]),
       if (!isPrevious) const MaterialIcon('chevron_right'),
     ]);
